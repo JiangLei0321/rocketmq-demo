@@ -9,11 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * 配置切面,配置日志 和请求参数打印
- * @author wangli on 2017/11/30.
- */
-
 @Aspect
 @Configuration
 public class LoggerAop {
