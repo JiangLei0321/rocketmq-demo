@@ -4,11 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * 共用工具类
- * @author 薛莹
- *
- */
 public class CommonUtil {
 	/**
 	 * 获得用户的编号
