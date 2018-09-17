@@ -7,10 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * Created by myLee on 2016/4/13.
- * @author myLee
- */
 public class MainClass {
 
     private static CountDownLatch latch = new CountDownLatch(1);
