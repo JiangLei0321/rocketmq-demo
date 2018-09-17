@@ -6,8 +6,6 @@ import java.util.UUID;
 
 /**
  * 共用工具类
- * @author 薛莹
- *
  */
 public class CommonUtil {
 	/**
