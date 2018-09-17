@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:bean="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="rocketMQProducer" class="com.ruubypay.rocketmq.producer.service.RocketMQProducer" init-method="init" destroy-method="destroy">
+        <property name="producerGroup" value="top1"/>
+        <property name="instanceName">
+            <!-- 获取静态方法返回值作为参数值 -->
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetClass">
+                    <value>com.ruubypay.rocketmq.producer.util.RunTimeUtil</value>
+                </property>
+                <property name="targetMethod">
+                    <!-- 必须是静态方法 -->
+                    <value>getRocketMqUniqeInstanceName</value>
+                </property>
+            </bean>
+        </property>
+        <property name="namesrvAddr" value="127.0.0.1:9876"/>
+        <!-- 失败重试次数 -->
+        <property name="retryTimes" value="2" />
+    </bean>
+
+    <!--component-scan扫描注入-->
+    <bean:component-scan base-package="com.ruubypay.rocketmq.producer.service" />
+
+    <bean id="sendMessageService" class="com.ruubypay.rocketmq.producer.service.SendMessageService">
+        <!--属性注入和component-scan扫描注入二者选其一-->
+        <!--<property name="rocketMQProducer" ref="rocketMQProducer"/>-->
+    </bean>
+</beans>
