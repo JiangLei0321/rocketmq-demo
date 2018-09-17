@@ -40,7 +40,7 @@ public class SendMessageService {
                     }
                 }, 0);
 
-                //无效发送消息
+                //无序发送消息
                 //SendResult result = rocketMQProducer.getDefaultMQProducer().send(msg);
             }
         } catch (Exception e) {
