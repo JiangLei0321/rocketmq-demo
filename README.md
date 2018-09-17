@@ -1,6 +1,7 @@
 结合spring框架开发实现
 
 https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.2.0/rocketmq-all-4.2.0-source-release.zip
+
 下载源码解压，进入目录
 项目构建  build success
 mvn -Prelease-all -DskipTests clean install -U
